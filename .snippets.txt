@@ -53,3 +53,25 @@ gulp.task('test', function (callback) {
     callback(err);
   });
 });
+
+-------------------------------------------------------------------------------
+--------------------------- TESTS ---------------------------------------------
+-------------------------------------------------------------------------------
+
+var addOne = require('../simple-math').addOne;
+var addFive = require('../simple-math').addFive;
+var assert = require('assert');
+
+describe('simple math', function () {
+  var seedNum = 10;
+  
+  it('should add 1', function (done) {
+    assert.equal(seedNum + 1, addOne(seedNum));
+    done();
+  });
+  
+  it('should add five', function (done) {
+    assert.equal(seedNum + 5, addFive(seedNum));
+    done();
+  });
+});
