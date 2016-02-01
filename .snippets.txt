@@ -12,19 +12,6 @@
 }
 
 -------------------------------------------------------------------------------
---------------------------- KEYBINDINGS ---------------------------------------
--------------------------------------------------------------------------------
-
-// Place your key bindings in this file to overwrite the defaults
-[
-{
-  "key": "ctrl+q",
-  "command": "workbench.action.closeAllEditors",
-  "when": "editorTextFocus"
-}
-]
-
--------------------------------------------------------------------------------
 --------------------------- TASKS ---------------------------------------------
 -------------------------------------------------------------------------------
 
@@ -40,11 +27,16 @@ gulp.task('minify', function () {
     .pipe(gulp.dest('public/javascripts'));
 });
 
-gulp.task('build', ['minify', 'test']);
+gulp.task('build', ['minify']);
 
 gulp.task('browse', function () {
   exec('start http://localhost:3000'); 
 });
+
+// *********************************************************
+// ************************ testing ************************
+// *********************************************************
+// add the 'test' task to the 'build' task
 
 gulp.task('test', function (callback) {
   exec('mocha', function (err, stdout, stderr) {
@@ -75,3 +67,16 @@ describe('simple math', function () {
     done();
   });
 });
+
+-------------------------------------------------------------------------------
+--------------------------- KEYBINDINGS ---------------------------------------
+-------------------------------------------------------------------------------
+
+// Place your key bindings in this file to overwrite the defaults
+[
+{
+  "key": "ctrl+q",
+  "command": "workbench.action.closeAllEditors",
+  "when": "editorTextFocus"
+}
+]
